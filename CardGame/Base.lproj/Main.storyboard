@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g9S-Hz-w4p">
+                                <rect key="frame" x="268" y="236" width="64" height="128"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="MfI-hV-n9b"/>
+                                    <constraint firstAttribute="width" constant="64" id="Nii-lG-SJ6"/>
+                                    <constraint firstAttribute="width" constant="64" id="eCV-w1-HGG"/>
+                                </constraints>
+                                <state key="normal" title="A">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Nii-lG-SJ6"/>
+                                        <exclude reference="eCV-w1-HGG"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="MfI-hV-n9b"/>
+                                        <exclude reference="Nii-lG-SJ6"/>
+                                        <include reference="eCV-w1-HGG"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="3hL-A2-CRu"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.21146096145373627" green="0.5" blue="0.18200638942816894" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="g9S-Hz-w4p" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="216" id="LQz-sd-00b"/>
+                            <constraint firstItem="g9S-Hz-w4p" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="216" id="M2w-K1-LVK"/>
+                            <constraint firstItem="g9S-Hz-w4p" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="POp-Hn-GcG"/>
+                            <constraint firstItem="g9S-Hz-w4p" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="StS-MG-kjV"/>
+                            <constraint firstItem="g9S-Hz-w4p" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="WEM-Sg-JDM"/>
+                            <constraint firstItem="g9S-Hz-w4p" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="fgS-Jn-0q3"/>
+                            <constraint firstItem="g9S-Hz-w4p" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="216" id="zhL-fb-sqG"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="LQz-sd-00b"/>
+                                <exclude reference="StS-MG-kjV"/>
+                                <exclude reference="WEM-Sg-JDM"/>
+                                <exclude reference="zhL-fb-sqG"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="LQz-sd-00b"/>
+                                <exclude reference="M2w-K1-LVK"/>
+                                <exclude reference="POp-Hn-GcG"/>
+                                <include reference="StS-MG-kjV"/>
+                                <include reference="WEM-Sg-JDM"/>
+                                <exclude reference="fgS-Jn-0q3"/>
+                                <exclude reference="zhL-fb-sqG"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="304" y="363.5"/>
+        </scene>
+    </scenes>
+</document>
