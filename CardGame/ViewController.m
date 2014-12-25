@@ -9,33 +9,46 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *flipsLabel;
+@property (nonatomic) int flipCount;
 
 @end
 
 @implementation ViewController
 
+- (void) setFlipCount:(int)flipCount
+{
+    _flipCount = flipCount;
+    self.flipsLabel.text = [NSString stringWithFormat:@"Flips: %d", self.flipCount];
+    NSLog(@"flipCount changed to %d", self.flipCount);
+}
+
 - (IBAction)touchCardButton:(UIButton *)sender
 {
-    NSLog(@"%lu", [sender.currentTitle length]);
-    
-    
     if ([sender.currentTitle length]) {
-        NSLog(@"1");
-        [sender setBackgroundColor:[UIColor colorWithRed:0.100f
-                                                   green:0.110f
-                                                    blue:0.110f
+        [sender setBackgroundColor:[UIColor colorWithRed:0.10f
+                                                   green:0.10f
+                                                    blue:0.10f
                                                    alpha:1.0f]];
         [sender setTitle:@""
                 forState:UIControlStateNormal];
     } else {
-        NSLog(@"2");
-        [sender setBackgroundColor:[UIColor colorWithRed:0.220f
-                                                   green:0.170f
-                                                    blue:0.240f
+        [sender setBackgroundColor:[UIColor colorWithRed:1.0f
+                                                   green:1.0f
+                                                    blue:1.0f
                                                    alpha:1.0f]];
         [sender setTitle:@"A♥︎"
                 forState:UIControlStateNormal];
     }
+    /* like as self.flipCount = self.flipCount + 1 */
+    /* invokes both the getter and setter */
+    self.flipCount++;
 }
+
+
+
+
+
+
 
 @end
