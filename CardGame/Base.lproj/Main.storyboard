@@ -2,13 +2,14 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Card Game View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="CardGameViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -81,14 +82,14 @@
                                 <exclude reference="H3q-WF-vS9"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="21o-Pe-je2"/>
+                                <exclude reference="BpU-I3-6iN"/>
+                                <exclude reference="zx0-QI-T8q"/>
                                 <exclude reference="Duh-NI-pRS"/>
                                 <exclude reference="LQz-sd-00b"/>
                                 <exclude reference="MBR-rI-rQC"/>
                                 <exclude reference="RfQ-Oj-ZDM"/>
                                 <exclude reference="zhL-fb-sqG"/>
-                                <exclude reference="21o-Pe-je2"/>
-                                <exclude reference="BpU-I3-6iN"/>
-                                <exclude reference="zx0-QI-T8q"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -96,6 +97,9 @@
                                 <include reference="H3q-WF-vS9"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="21o-Pe-je2"/>
+                                <include reference="BpU-I3-6iN"/>
+                                <include reference="zx0-QI-T8q"/>
                                 <include reference="Duh-NI-pRS"/>
                                 <exclude reference="LQz-sd-00b"/>
                                 <exclude reference="M2w-K1-LVK"/>
@@ -104,9 +108,6 @@
                                 <exclude reference="RfQ-Oj-ZDM"/>
                                 <exclude reference="fgS-Jn-0q3"/>
                                 <exclude reference="zhL-fb-sqG"/>
-                                <include reference="21o-Pe-je2"/>
-                                <include reference="BpU-I3-6iN"/>
-                                <include reference="zx0-QI-T8q"/>
                             </mask>
                         </variation>
                     </view>

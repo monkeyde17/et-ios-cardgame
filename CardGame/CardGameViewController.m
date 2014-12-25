@@ -6,15 +6,15 @@
 //  Copyright (c) 2014年 etond. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "CardGameViewController.h"
 
-@interface ViewController ()
+@interface CardGameViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *flipsLabel;
 @property (nonatomic) int flipCount;
 
 @end
 
-@implementation ViewController
+@implementation CardGameViewController
 
 - (void) setFlipCount:(int)flipCount
 {
