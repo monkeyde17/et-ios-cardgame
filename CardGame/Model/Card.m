@@ -7,7 +7,6 @@
 //
 
 #import "Card.h"
-#import "Card_Text.h"
 
 @interface Card()
 
@@ -25,8 +24,6 @@
             score = 1;
         }
     }
-    
-    self.size = @"fuckyou";
     
     return score;
 }

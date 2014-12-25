@@ -7,46 +7,79 @@
 //
 
 #import "CardGameViewController.h"
+#import "Deck.h"
+#import "PlayingCardDeck.h"
+#import "CardMatchingGame.h"
 
 @interface CardGameViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *flipsLabel;
-@property (nonatomic) int flipCount;
-
+@property (strong, nonatomic) Deck *deck;
+@property (strong, nonatomic) CardMatchingGame *game;
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
+@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @end
 
 @implementation CardGameViewController
 
-- (void) setFlipCount:(int)flipCount
+- (CardMatchingGame *) game
 {
-    _flipCount = flipCount;
-    self.flipsLabel.text = [NSString stringWithFormat:@"Flips: %d", self.flipCount];
-    NSLog(@"flipCount changed to %d", self.flipCount);
+    if (!_game) _game = [[CardMatchingGame alloc] initWithCardCount: [self.cardButtons count]
+                                                          usingDeck:[self createDeck]];
+    return _game;
 }
 
+- (Deck *) deck
+{
+    if (!_deck) _deck = [self createDeck];
+    return _deck;
+}
+
+- (Deck *) createDeck
+{
+    return [[PlayingCardDeck alloc] init];
+}
+
+//- (void) setFlipCount:(int)flipCount
+//{
+//    _flipCount = flipCount;
+//    self.flipsLabel.text = [NSString stringWithFormat:@"Flips: %d", self.flipCount];
+//    NSLog(@"flipCount changed to %d", self.flipCount);
+//}
+//
 - (IBAction)touchCardButton:(UIButton *)sender
 {
-    if ([sender.currentTitle length]) {
-        [sender setBackgroundColor:[UIColor colorWithRed:0.10f
-                                                   green:0.10f
-                                                    blue:0.10f
-                                                   alpha:1.0f]];
-        [sender setTitle:@""
-                forState:UIControlStateNormal];
-    } else {
-        [sender setBackgroundColor:[UIColor colorWithRed:1.0f
-                                                   green:1.0f
-                                                    blue:1.0f
-                                                   alpha:1.0f]];
-        [sender setTitle:@"A♥︎"
-                forState:UIControlStateNormal];
-    }
+    NSUInteger choseButtonIndex = [self.cardButtons indexOfObject:sender];
+    [self.game chooseCardAtIndex:choseButtonIndex];
+    
+    [self updateUI];
+   
     /* like as self.flipCount = self.flipCount + 1 */
     /* invokes both the getter and setter */
-    self.flipCount++;
+    //self.flipCount++;
 }
 
+- (void) updateUI
+{
+    for (UIButton *cardButton in self.cardButtons) {
+        NSUInteger cardButtonIndex = [self.cardButtons indexOfObject:cardButton];
+        Card *card = [self.game cardAtIndex:cardButtonIndex];
+        
+        [cardButton setTitle:[self titleForCard:card] forState:UIControlStateNormal];
+        [cardButton setBackgroundColor:[self backgroudColor:card]];
+        
+        cardButton.enabled = !card.isMatched;
+        self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", self.game.score];
+    }
+}
 
+- (NSString *)titleForCard:(Card *)card
+{
+    return card.isChosen ? card.content : @"";
+}
 
+- (UIColor *)backgroudColor:(Card *)card
+{
+    return card.isChosen ? [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:1.0f] : [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:1.0f];
+}
 
 
 
